@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
+import ProgressBar from '../ProgressBar/ProgressBar.jsx'
 /**
  * StepTwo collects user input for the type of activity
  */
@@ -24,6 +24,7 @@ function StepTwo() {
     }
     return (
         <>
+        <ProgressBar currentStep={1} />
             <h3>Step Two</h3>
             <form onSubmit={nextPage}>
                 <label htmlFor="activity-type">Activity Type:</label><br />

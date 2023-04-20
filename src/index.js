@@ -11,6 +11,9 @@ const personName = (state = 'Chris', action) => {
     if (action.type === 'SET_PERSON_NAME') {
         // This changes the value of our reducer
         return action.payload;
+    } else if (action.type=== 'CLEAR_FORM')
+    {
+        return '';
     }
     // Value of our reducer remains unchanged
     return state;
@@ -21,6 +24,8 @@ const allPeople = (state = [], action) => {
         // return a new array with existing items PLUS the new item
         return [...state, action.payload];
         // basically the same as state.push(action.payload);
+    } else if (action.type === 'CLEAR_FORM') {
+        return [];
     }
     return state;
 }
@@ -30,6 +35,8 @@ const activityType = (state = 'Walking', action) => {
     if (action.type === 'SET_ACTIVITY_TYPE') {
         // This changes the value of our reducer
         return action.payload;
+    } else if (action.type === 'CLEAR_FORM') {
+        return 0;
     }
     // Value of our reducer remains unchanged
     return state;
@@ -40,6 +47,8 @@ const minutes = (state = 0, action) => {
     if (action.type === 'SET_ACTIVITY_MINUTES') {
         // This changes the value of our reducer
         return action.payload;
+    }else if (action.type === 'CLEAR_FORM') {
+        return 0;
     }
     // Value of our reducer remains unchanged
     return state;
@@ -50,8 +59,18 @@ const miles = (state = 0, action) => {
     if (action.type === 'SET_ACTIVITY_MILES') {
         // This changes the value of our reducer
         return action.payload;
+    }else if (action.type === 'CLEAR_FORM') {
+        return 0;
     }
     // Value of our reducer remains unchanged
+    return state;
+}
+const activities =(state =[], action) => {
+    if(action.type === 'SET_ACTIVITY_LIST') {
+       
+        // action.payload will be the array from the server
+        return action.payload;
+    }
     return state;
 }
 
@@ -63,6 +82,7 @@ const storeInstance = createStore(
             activityType,
             minutes,
             miles,
+            activities,
             // Other reducers go here
         }
     ),

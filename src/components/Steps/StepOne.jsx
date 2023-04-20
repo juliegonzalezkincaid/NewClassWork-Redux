@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import ProgressBar from '../ProgressBar/ProgressBar.jsx';
 
 function StepOne() {
     const history = useHistory();
@@ -30,6 +31,7 @@ function StepOne() {
 
     return (
         <>
+        <ProgressBar currentStep={0} />
             <h3>Step One</h3>
             <form onSubmit={addPerson}>
                 <label htmlFor="person">Person:</label><br />

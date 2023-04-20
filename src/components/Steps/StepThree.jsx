@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
+import ProgressBar from '../ProgressBar/ProgressBar.jsx';
 /**
  * StepThree collects user input for the number of minutes
  */
@@ -26,10 +26,11 @@ function StepThree() {
 
     return (
         <>
+        <ProgressBar currentStep={2} />
             <h3>Step Three</h3>
             <form onSubmit={nextPage}>
                 <label htmlFor="minutes">Minutes:</label><br />
-                <input id="minutes" value={minutes} onChange={handleChange} type="text" />
+                <input id="minutes" value={minutes} onChange={handleChange} type="number" />
                 <input type="submit" value="Next" />
             </form>
         </>
